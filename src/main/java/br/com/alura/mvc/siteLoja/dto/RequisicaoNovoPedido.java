@@ -1,10 +1,8 @@
 package br.com.alura.mvc.siteLoja.dto;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-
 import br.com.alura.mvc.siteLoja.model.Pedido;
+import br.com.alura.mvc.siteLoja.model.statusPedido;
 
 public class RequisicaoNovoPedido {
 	
@@ -17,7 +15,6 @@ public class RequisicaoNovoPedido {
 	@NotBlank 
 	private String urlImagem;
 	
-	@NotBlank @Min(1) @Max(1000)
 	private String descricao;
 	
 	public String getNomeProduto() {
@@ -51,6 +48,7 @@ public class RequisicaoNovoPedido {
 		pedido.setNomeProduto(nomeProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setUrlProduto(urlProduto);
+		pedido.setStatus(statusPedido.AGUARDANDO);
 		
 		return pedido;
 	}
